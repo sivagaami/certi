@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name:  certi-deploy
-  namespace: test-kube
   labels:
     name:  certi
 spec:
