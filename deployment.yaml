@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: certi
-        image: gcr.io/model-framing-308812/certi@sha256:65bfd2a7852e628025e83d35c2fcfeca0a576b060bc5a9becb61c5558b39278f
+        image: gcr.io/model-framing-308812/certi:latest
         ports:
         - containerPort: 80
