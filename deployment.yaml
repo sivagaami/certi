@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: certi
-        image: gcr.io/model-framing-308812/certi:latest
+        image: gcr.io/model-framing-308812/certi: v1
         ports:
         - containerPort: 80
