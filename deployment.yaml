@@ -16,7 +16,7 @@ spec:
       containers:
       - name: certi
         # Replace $GCLOUD_PROJECT with your project ID
-        image: gcr.io/model-framing-308812/certi:v1
+        image: gcr.io/$GCLOUD_PROJECT/certi:v1
         # This app listens on port 8080 for web traffic by default.
         ports:
         - containerPort: 8000
