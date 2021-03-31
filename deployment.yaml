@@ -1,8 +1,9 @@
-# This file configures the hello-world app which serves public web traffic.
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: certi-deployment
+  name: certification-deploy
+  labels:
+    app: certi
 spec:
   replicas: 3
   selector:
@@ -15,11 +16,6 @@ spec:
     spec:
       containers:
       - name: certi
-        # Replace $GCLOUD_PROJECT with your project ID
-        image: gcr.io/model-framing-308812/certi@sha256:142894e88241d4854da05cbbb4aef96f18421c8028cb0bdef0406602ee01012c
-        # This app listens on port 8080 for web traffic by default.
+        image: gcr.io/model-framing-308812/certi:v1
         ports:
-        - containerPort: 8000
-        env:
-          - name: PORT
-            value: "8000"
+        - containerPort: 80
