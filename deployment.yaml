@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: certi-deploy
+  name: certi-deployment
 spec:
   replicas: 3
   selector:
