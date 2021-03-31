@@ -27,7 +27,7 @@ spec:
         args: [ date; sleep 10; echo 'Hello from the Kubernetes cluster'; sleep 1; while true; do sleep 20; done;]
         resources:
           limits:
-            cpu: "500m"
+            cpu: "100m"
             memory: "500Mi"      
         ports:
         - containerPort:  80
