@@ -1,21 +1,36 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: certification-deploy
+  name:  certi-deploy
+  namespace: test-kube
   labels:
-    app: certi
+    name:  certi
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: certi
+      os: ubuntu
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
   template:
     metadata:
       labels:
-        app: certi
+        os: ubuntu
     spec:
       containers:
-      - name: certi
-        image: gcr.io/model-framing-308812/certi:v1
+      - image:  gcr.io/model-framing-308812/certi:v1
+        imagePullPolicy: Always
+        name:  my-name
+        command: [ "/bin/bash", "-ec"]
+        args: [ date; sleep 10; echo 'Hello from the Kubernetes cluster'; sleep 1; while true; do sleep 20; done;]
+        resources:
+          limits:
+            cpu: "500m"
+            memory: "500Mi"      
         ports:
-        - containerPort: 80
+        - containerPort:  80
+          name:  my-name
+      restartPolicy: Always
