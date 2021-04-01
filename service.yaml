@@ -1,15 +1,14 @@
+# The hello service provides a load-balancing proxy over the hello-app
+# pods. By specifying the type as a 'LoadBalancer', Kubernetes Engine will
+# create an external HTTP load balancer.
+apiVersion: v1
 kind: Service
-apiVersion: apps/v1
 metadata:
-  name: certi
-  labels:
-    name:  certi
+  name: certi-service
 spec:
-  selector:
-    matchLabels:
-      os: ubuntu
   type: LoadBalancer
+  selector:
+    app: certi
   ports:
-    - name: my-apache-port
-      port: 8080
-      targetPort: 80
+  - port: 80
+    targetPort: 8000
