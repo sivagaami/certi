@@ -6,11 +6,9 @@ kind: Service
 metadata:
   name: certi-service
 spec:
- selector:
-   app: my-name
+  type: LoadBalancer
+  selector:
+    app: my-name
   ports:
-   -protocol: TCP
-    port: 80
+  - port: 80
     targetPort: 8000
-    nodePort: 31000
-   type: NodePort
